@@ -17,8 +17,13 @@ pipeline {
         stage("Ordine alfabetico") {
             steps {
                 script {
-                    def files = findFiles glob: 'EsInventati/*.txt'
-                    println(files)
+                    def files = findFiles glob: '**/*.txt'
+                    def fileTotali = []
+                    files.each {
+                        println(it)
+                        fileTotali.add(it)
+                    }
+                    println(fileTotali)
                 }
             }
         }
